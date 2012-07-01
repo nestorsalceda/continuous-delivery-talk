@@ -1,0 +1,102 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=1024" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<title>Continuous Delivery</title>
+		<meta name="description" content=""/>
+		<meta name="author" content="Néstor Salceda" />
+		<link href='http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:400,700,300,200' rel='stylesheet' type='text/css'>
+		<link href="style.css" rel="stylesheet"/>
+	</head>
+	<body class="impress-not-supported">
+		<div class="fallback-message">
+			<p>Your browser <b>doesn't support the features required</b> by impress.js, so you are presented with a simplified version of this presentation.</p>
+			<p>For the best experience please use the latest <b>Chrome</b> or <b>Safari</b> browser. Firefox 10 (to be released soon) will also handle it.</p>
+		</div>
+		<div id="impress">
+			<div id="main" class="step" data-scale="3">
+				<h1>Continuous Delivery</h1>
+			</div>
+			<div id="me" class="step" data-x="0" data-y="900">
+				<div id="about-me">
+					<h1>Néstor Salceda</h1>
+					<p>
+						<span id="title">Independent Software Engineer</span>
+						<span id="joke-title" style="display:none"> Capitan Alatriste</span>
+					</p>
+					<!-- TODO: I love software, Open Source and Agile stuff -->
+				</div>
+				<figure>
+					<img src="images/nestor.jpg" width="100%"/>
+					<figcaption><a href="https://www.twitter.com/#!/nestorsalceda">@nestorsalceda</a></figcaption>
+				</figure>
+			</div>
+
+			<div class="step" id="i-love-agile-and-lean-wadus"
+				data-y="900" data-x="-1400" data-scale="2">
+				<h1>I love agile and lean wadus</h1>
+			</div>
+			<div class="step" id="the-first-principle-in-agile-manifest"
+				data-y="500" data-x="-1800" data-rotate="-90" data-scale=".6" >
+				<h1>Our highest priority is to satisfy the customer through early and continuous delivery of valuable software</h1>
+			</div>
+			<div class="step" id="how-long-would-it-take-you-to-deploy-a-change"
+				data-y="1300" data-x="-1325" data-rotate="90" data-scale=".6" >
+				<h1>How long would it take you to deploy a change that involves just one single line of code?</h1>
+			</div>
+
+			<div class="step" id="but-i-m-fed-up-with" data-y="700" data-x="1500" data-scale="2">
+				<h1>But I'm fed up with</h1>
+			</div>
+			<div class="step" id="deploying-software-manually"
+				data-rotate="90" data-y="1100" data-x="1500"
+				data-scale=".6">
+				<h1>Deploying software manually</h1>
+			</div>
+			<div class="step"
+				id="deploying-after-development-is-complete"
+				data-rotate="90" data-y="1100" data-x="1250"
+				data-scale=".6">
+				<h1>Deploying to a production like environment after development is complete</h1>
+			</div>
+			<div class="step"
+				id="manual-configuration-m-anagement-of-production-environments"
+				data-y="1100" data-x="950" data-rotate="90"
+				data-scale=".6">
+				<h1>Manual configuration management of production environments</h1>
+			</div>
+
+			<div class="step" id="we-can-do-it-better"
+				data-y="-600" data-x="250" data-scale="3">
+				<h1>We can do it better<h1>
+			</div>
+			<div class="step" id="automate" data-y="-800" data-x="1050">
+				<h1>Automate</h1>
+			</div>
+			<div class="step" id="frequent" data-y="-400" data-x="1050">
+				<h1>Frequent</h1>
+			</div>
+		</div>
+		<script src="impress.js"></script>
+		<script src="jquery.min.js"></script>
+		<script>impress().init();</script>
+		<script>
+			$(document).ready(function() {
+				var slide = $('#me');
+				$('img', slide).click(function() {
+					if ($('#joke-title', slide).is(':visible')) {
+						$('#title', slide).css('text-decoration', 'none');
+						$('#joke-title', slide).hide();
+						$('img', slide).attr('src', 'images/nestor.jpg');
+					} else {
+						$('#title', slide).css('text-decoration', 'line-through');
+						$('#joke-title', slide).show();
+						$('img', slide).attr('src', 'images/nestor-moustache.jpg');
+					}
+				});
+			});
+		</script>
+	</body>
+</html>
