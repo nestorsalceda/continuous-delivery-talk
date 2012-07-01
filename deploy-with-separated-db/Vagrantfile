@@ -1,0 +1,34 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant::Config.run do |config|
+
+  config.vm.define :database do |database|
+    database.vm.box = "base"
+    database.vm.network :hostonly, "33.33.33.10"
+
+    database.vm.provision :chef_client do |chef|
+      chef.chef_server_url = "https://api.opscode.com/organizations/nestorsalceda"
+      chef.validation_key_path = "../chef-repo/.chef/nestorsalceda-validator.pem"
+      chef.validation_client_name = "nestorsalceda-validator"
+      chef.node_name = "database"
+
+      chef.add_role "database"
+    end
+  end
+
+  config.vm.define :worker do |worker|
+    worker.vm.box = "base"
+    worker.vm.network :hostonly, "33.33.33.11"
+
+    worker.vm.provision :chef_client do |chef|
+      chef.chef_server_url = "https://api.opscode.com/organizations/nestorsalceda"
+      chef.validation_key_path = "../chef-repo/.chef/nestorsalceda-validator.pem"
+      chef.validation_client_name = "nestorsalceda-validator"
+      chef.node_name = "worker"
+
+      chef.add_role "viper"
+    end
+  end
+
+end
